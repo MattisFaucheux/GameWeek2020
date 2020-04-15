@@ -1023,6 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_QuizzCanvas: {fileID: 7125746359215472670}
   m_playerScript: {fileID: 0}
+  m_eventSystem: {fileID: 7125746358983272221}
   m_audioSource: {fileID: 0}
   m_musicAudioSource: {fileID: 0}
   m_goodAnswer: {fileID: 8300000, guid: 737817ea140507f47ad2c2a006cdfa8a, type: 3}
@@ -1043,6 +1044,7 @@ MonoBehaviour:
   - {fileID: 1299750184030442033}
   m_questionsNbr: 5
   m_goodAnswers: 0
+  m_waitForNextQuestion: 2
 --- !u!114 &7434701119530154944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,8 +1338,8 @@ MonoBehaviour:
         m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7125746358881112801}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 7125746358473970913}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1465,8 +1467,8 @@ MonoBehaviour:
         m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1299750183086763577}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 7125746358647239876}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1594,8 +1596,8 @@ MonoBehaviour:
         m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1299750184030442033}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 7125746358795362460}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1955,7 +1957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 7125746358473970913}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &7125746358983272222
@@ -2213,8 +2215,8 @@ MonoBehaviour:
         m_MethodName: CheckAnswer
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1299750183767021656}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 7125746359763478986}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
