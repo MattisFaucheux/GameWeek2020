@@ -71,7 +71,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         m_playerScript.enabled = true;
         //animator.SetBool("IsOpen", false);
