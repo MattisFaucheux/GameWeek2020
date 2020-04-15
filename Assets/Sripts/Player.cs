@@ -20,10 +20,19 @@ public class Player : MonoBehaviour
 
     public float pushPower = 2.0f;
 
+    public float m_timeRespawnWater = 1.0f;
+    private Vector3 m_spawnPoint;
+
 
     private bool m_triggerOnceInteract = false;
 
     public DialogueManager m_dialogueManager;
+
+    private void Start()
+    {
+        m_spawnPoint = transform.position;
+
+    }
 
     void Update()
     {
@@ -70,6 +79,20 @@ public class Player : MonoBehaviour
             m_triggerOnceInteract = true;
             m_dialogueManager.StartDialogue(other.gameObject.GetComponent<Dialogue>());
         }
+        if(other.gameObject.CompareTag("Water"))
+        {
+
+            StartCoroutine(RespawnWater());
+        }
+    }
+
+
+    IEnumerator RespawnWater()
+    {
+        yield return new WaitForSeconds(m_timeRespawnWater);
+        controller.enabled = false;
+        transform.position = m_spawnPoint;
+        controller.enabled = true;
     }
 
 
