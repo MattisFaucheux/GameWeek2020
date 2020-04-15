@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     private bool m_triggerOnceInteract = false;
 
+    public DialogueManager m_dialogueManager;
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour
         if(Input.GetButton("Interact") && !m_triggerOnceInteract && other.gameObject.CompareTag("InteractObject"))
         {
             m_triggerOnceInteract = true;
-            Debug.Log("hgfds");
+            m_dialogueManager.StartDialogue(other.gameObject.GetComponent<Dialogue>());
         }
     }
 }
