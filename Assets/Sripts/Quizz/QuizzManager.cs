@@ -5,12 +5,14 @@ using System.Xml.Serialization;
 
 public class QuizzManager : MonoBehaviour
 {
+    public GameObject m_QuizzCanvas;
+    public Player m_playerScript;
+
+
     public string m_FilePath;
 
     public TMPro.TextMeshProUGUI m_question;
     public TMPro.TextMeshProUGUI[] m_answers;
-
-
 
     private Quizz m_actualQuizz;
 
@@ -22,9 +24,9 @@ public class QuizzManager : MonoBehaviour
 
     void Start()
     {
-        m_actualQuizz = Quizz.LoadFromFile(Application.dataPath + m_FilePath);
+        m_QuizzCanvas.SetActive(false);
 
-        NextQuestion();
+        m_actualQuizz = Quizz.LoadFromFile(Application.dataPath + m_FilePath);
     }
 
     public void NextQuestion()
@@ -62,7 +64,6 @@ public class QuizzManager : MonoBehaviour
                 return;
             }
         }
-
     }
 
     public void CheckAnswer(int buttonIndex)
@@ -85,5 +86,13 @@ public class QuizzManager : MonoBehaviour
             m_answers[2].text = "";
             m_answers[3].text = "";
         }
+    }
+
+    public void ActivateQuizz()
+    {
+        m_QuizzCanvas.SetActive(true);
+        m_playerScript.enabled = false;
+
+        NextQuestion();
     }
 }

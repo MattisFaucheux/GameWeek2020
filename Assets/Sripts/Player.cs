@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public LayerMask groundMask;
     private bool isGrounded;
 
+    private bool m_triggerOnceInteract = false;
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -48,6 +50,19 @@ public class Player : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        if(Input.GetButtonUp("Interact"))
+        {
+            m_triggerOnceInteract = false;
+        }
         
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(Input.GetButton("Interact") && !m_triggerOnceInteract && other.gameObject.CompareTag("InteractObject"))
+        {
+            m_triggerOnceInteract = true;
+            Debug.Log("hgfds");
+        }
     }
 }
