@@ -430,7 +430,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9095773716575018821
 GameObject:
@@ -546,15 +546,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 9095773716575018819}
-  playerSpeed: 12
-  gravity: -19.62
-  jumpHeight: 2
-  sprintSpeed: 2
+  playerSpeed: 9
+  gravity: -50
+  jumpHeight: 3.5
+  sprintSpeed: 1.5
   groundCheck: {fileID: 9095773714827261255}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  pushPower: 5
+  pushPower: 3
   m_timeRespawnWater: 0.25
   m_dialogueManager: {fileID: 0}
