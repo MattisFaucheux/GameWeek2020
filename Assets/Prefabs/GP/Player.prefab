@@ -299,4 +299,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  pushPower: 5
+  m_timeRespawnWater: 0.25
   m_dialogueManager: {fileID: 0}

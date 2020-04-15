@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b60e821526ba44680ac928fcf97bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerScript: {fileID: 0}
   m_nameText: {fileID: 7125746358863315140}
   m_dialogueText: {fileID: 1299750183231001568}
   m_dialogueBox: {fileID: 1299750183961953202}
@@ -1031,6 +1032,7 @@ MonoBehaviour:
   - {fileID: 1299750183086763577}
   - {fileID: 1299750184030442033}
   m_questionsNbr: 5
+  m_goodAnswers: 0
 --- !u!114 &7434701119530154944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1302,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.754717, g: 0.7226771, b: 0.7226771, a: 1}
     m_PressedColor: {r: 0.9433962, g: 0.62646025, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1429,7 +1431,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.754717, g: 0.7226771, b: 0.7226771, a: 1}
     m_PressedColor: {r: 0.9433962, g: 0.62646025, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1558,7 +1560,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.754717, g: 0.7226771, b: 0.7226771, a: 1}
     m_PressedColor: {r: 0.9433962, g: 0.62646025, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1943,7 +1945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 7125746358473970913}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &7125746358983272222
@@ -2177,7 +2179,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.754717, g: 0.7226771, b: 0.7226771, a: 1}
     m_PressedColor: {r: 0.9433962, g: 0.62646025, b: 0, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
