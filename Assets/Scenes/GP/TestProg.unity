@@ -121,6 +121,90 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &405643549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00047470245
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 603f7f0714e8cc94a8244ad1a1c81d4e,
+        type: 3}
+      propertyPath: m_Name
+      value: TowerEiffel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 603f7f0714e8cc94a8244ad1a1c81d4e, type: 3}
 --- !u!114 &564925508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9095773716575018818, guid: e9df43f0f6dd2df4f80a2c6ea65c6d3d,
@@ -398,7 +482,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1299750183970953632
 PrefabInstance:
