@@ -20,7 +20,7 @@ public class QuizzManager : MonoBehaviour
     public float m_questionsNbr = 5;
     private float m_totalQuestionsNbr = 20;
     private List<int> m_latestQuestionsIndex;
-    private float m_goodAnswers = 0;
+    public float m_goodAnswers = 0;
 
     void Start()
     {

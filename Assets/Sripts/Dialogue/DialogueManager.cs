@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
+    public Player m_playerScript;
 
     public TMPro.TextMeshProUGUI m_nameText;
     public TMPro.TextMeshProUGUI m_dialogueText;
@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        m_playerScript.enabled = false;
         //animator.SetBool("IsOpen", true);
         m_dialogueBox.SetActive(true);
         m_nameText.text = dialogue.name;
@@ -66,12 +67,18 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(time_new_sentence);
+        while(!Input.GetButton("Interact"))
+        {
+            yield return null;
+        }
+
+        //yield return new WaitForSeconds(time_new_sentence);
         DisplayNextSentence();
     }
 
     void EndDialogue()
     {
+        m_playerScript.enabled = true;
         //animator.SetBool("IsOpen", false);
         m_dialogueBox.SetActive(false);
     }
