@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-    public string name;
+    public string m_name;
 
     [TextArea(3, 10)]
     public string[] sentences;
