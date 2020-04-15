@@ -1,6 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Materials/mat_Blue.mat.meta
 guid: 6380948729c1e0946badf50cb8ed4a26
 NativeFormatImporter:
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 00de6684ad9fcce428c4187d0e033bc7
+=======
+guid: d9d5b0662b099d24d8c944807e91f8bc
+>>>>>>> Stashed changes
+=======
+guid: b3b6cc531198ff1409fa9936c6d1c68f
+>>>>>>> Stashed changes
+TextScriptImporter:
+>>>>>>> master:Assets/Materials/txt.txt.meta
   externalObjects: {}
   mainObjectFileID: 0
   userData: 

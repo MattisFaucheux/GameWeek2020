@@ -1,6 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Materials/mat_Green.mat.meta
 guid: 3a56587ea53611644bdb7dca4552adc3
 NativeFormatImporter:
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 0f9d62e0f7977ef44be8f4810d513c20
+=======
+guid: 6ff711740056862418ab8677ce2743b7
+>>>>>>> Stashed changes
+=======
+guid: c2045adad7fb3e447a204628881f8166
+>>>>>>> Stashed changes
+TextScriptImporter:
+>>>>>>> master:Assets/Scenes/GD/txt.txt.meta
   externalObjects: {}
   mainObjectFileID: 0
   userData: 
