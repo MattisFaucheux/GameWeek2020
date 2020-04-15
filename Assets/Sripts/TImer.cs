@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
     private void EndOfTimer()
     {
         m_isFinished = true;
-        m_timerObj.SetActive(false);
         GetComponent<QuizzManager>().ActivateQuizz();
+        m_timerObj.SetActive(false);
     }
 }

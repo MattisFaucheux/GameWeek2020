@@ -9,6 +9,12 @@ public class QuizzManager : MonoBehaviour
     public Player m_playerScript;
     private DialogueManager m_dialogueManager;
 
+    public AudioSource m_audioSource;
+    public AudioSource m_musicAudioSource;
+    public AudioClip m_goodAnswer;
+    public AudioClip m_badAnswer;
+    public AudioClip m_clipStart;
+    public AudioClip m_perfect;
 
     public string m_FilePath;
 
@@ -114,14 +120,28 @@ public class QuizzManager : MonoBehaviour
         if(buttonText.text == m_actualQuizz.Questions[m_actualQuestionIndex].AnswerText)
         {
             m_goodAnswers += 1;
+            m_audioSource.clip = m_goodAnswer;
+            m_audioSource.Play();
+        }
+        else
+        {
+            m_audioSource.clip = m_badAnswer;
+            m_audioSource.Play();
         }
 
-        if (m_latestQuestionsIndex.Count < 5)
+        if (m_latestQuestionsIndex.Count < m_questionsNbr)
         {
             NextQuestion();
         }
         else
         {
+            if(m_goodAnswers == m_questionsNbr)
+            {
+                m_musicAudioSource.Stop();
+                m_musicAudioSource.PlayOneShot(m_perfect);
+            }
+
+
             m_question.text = "GG";
 
             for(int i=0; i< 4; i++)
@@ -133,9 +153,18 @@ public class QuizzManager : MonoBehaviour
 
     public void ActivateQuizz()
     {
-        m_QuizzCanvas.SetActive(true);
+        m_audioSource.clip = m_clipStart;
+        m_audioSource.Play();
         m_dialogueManager.EndDialogue();
         m_playerScript.enabled = false;
+        StartCoroutine(WaitStartQuizz());
+    }
+
+    IEnumerator WaitStartQuizz()
+    {
+        yield return new WaitForSecondsRealtime(m_clipStart.length);
+        m_QuizzCanvas.SetActive(true);
         NextQuestion();
+        m_musicAudioSource.Play();
     }
 }
