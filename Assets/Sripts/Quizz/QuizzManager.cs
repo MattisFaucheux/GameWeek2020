@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Xml.Serialization;
 
 public class QuizzManager : MonoBehaviour
 {
     public GameObject m_QuizzCanvas;
     public Player m_playerScript;
+    public EventSystem m_eventSystem;
     private DialogueManager m_dialogueManager;
 
     public AudioSource m_audioSource;
@@ -22,6 +25,8 @@ public class QuizzManager : MonoBehaviour
     public GameObject[] m_buttons;
     public TMPro.TextMeshProUGUI[] m_answers;
 
+    private GameObject m_lastButtonPressed;
+
     private Quizz m_actualQuizz;
 
     private int m_actualQuestionIndex = 0;
@@ -33,6 +38,7 @@ public class QuizzManager : MonoBehaviour
     private int m_rand;
 
     public float m_goodAnswers = 0;
+    public float m_waitForNextQuestion = 2;
 
     void Start()
     {
@@ -44,6 +50,8 @@ public class QuizzManager : MonoBehaviour
 
     public void NextQuestion()
     {
+        m_eventSystem.SetSelectedGameObject(m_buttons[0]);
+
         GetNextQuestionIndex();
 
         if (m_latestQuestionsIndex == null)
@@ -115,23 +123,33 @@ public class QuizzManager : MonoBehaviour
         }
     }
 
-    public void CheckAnswer(TMPro.TextMeshProUGUI buttonText)
+    public void CheckAnswer(GameObject button)
     {
-        if(buttonText.text == m_actualQuizz.Questions[m_actualQuestionIndex].AnswerText)
+        m_eventSystem.enabled = false;
+
+        TMPro.TextMeshProUGUI buttonText = button.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+
+        m_lastButtonPressed = button;
+
+        if (buttonText.text == m_actualQuizz.Questions[m_actualQuestionIndex].AnswerText)
         {
             m_goodAnswers += 1;
+            button.GetComponent<Image>().color = Color.green;
+            
             m_audioSource.clip = m_goodAnswer;
             m_audioSource.Play();
         }
         else
         {
+            button.GetComponent<Image>().color = Color.red;
+
             m_audioSource.clip = m_badAnswer;
             m_audioSource.Play();
         }
 
         if (m_latestQuestionsIndex.Count < m_questionsNbr)
         {
-            NextQuestion();
+            StartCoroutine(WaitForNextQuestion());
         }
         else
         {
@@ -166,5 +184,13 @@ public class QuizzManager : MonoBehaviour
         m_QuizzCanvas.SetActive(true);
         NextQuestion();
         m_musicAudioSource.Play();
+    }
+
+    IEnumerator WaitForNextQuestion()
+    {
+        yield return new WaitForSeconds(m_waitForNextQuestion);
+        m_lastButtonPressed.GetComponent<Image>().color = Color.white;
+        m_eventSystem.enabled = true;
+        NextQuestion();
     }
 }
