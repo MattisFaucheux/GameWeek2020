@@ -1,44 +1,44 @@
 <Questions>
 <Quizz>
-<Question name="Combien y a-t-il de lacs au Canada ?" answer1="3 millions" answer2="700 000" answer3="100 000" answer4="15 millions" answer="1">
+<Question name="Combien y a-t-il de lacs au Canada ?" answer1="3 millions" answer2="700 000" answer3="100 000" answer4="15 millions" answer="3 millions">
 </Question>
-<Question name="Combien de ponts entourent la ville de Montreal ?" answer1="5" answer2="9" answer3="6" answer4="3" answer="2">
+<Question name="Combien de ponts entourent la ville de Montreal ?" answer1="5" answer2="9" answer3="6" answer4="3" answer="9">
 </Question>
-<Question name="Combien y a-t-il de provinces et territoires au Canada" answer1="10" answer2="9" answer3="13" answer4="16" answer="3">
+<Question name="Combien y a-t-il de provinces et territoires au Canada" answer1="10" answer2="9" answer3="13" answer4="16" answer="13">
 </Question>
-<Question name="Quelle est la province avec la plus grande population ?" answer1="France" answer2="Alaska" answer3="Quebec" answer4="Ontario" answer="4">
+<Question name="Quelle est la province avec la plus grande population ?" answer1="France" answer2="Alaska" answer3="Quebec" answer4="Ontario" answer="Ontario">
 </Question>
-<Question name="Quelle est la temperature la plus basse enregistree au Canada?" answer1="Frette" answer2="-45 Degres Farenheit" answer3="-45degres Celsius" answer4="-63 degres Celsius" answer="1">
+<Question name="Quelle est la temperature la plus basse enregistree au Canada?" answer1="Frette" answer2="-45 Degres Farenheit" answer3="-45degres Celsius" answer4="-63 degres Celsius" answer="Frette">
 </Question>
-<Question name="Quelle est la capacite totale du stade olympique de Montreal" answer1=" 74 923" answer2="66 308" answer3="24 000" answer4="102 560" answer="2">
+<Question name="Quelle est la capacite totale du stade olympique de Montreal" answer1=" 74 923" answer2="66 308" answer3="24 000" answer4="102 560" answer="66 308">
 </Question>
-<Question name="Quelle est la hauteur du Stade Olympique de Montreal ?" answer1="120m" answer2="300m" answer3="165 m" answer4="IT OVER 9000 !!!" answer="3">
+<Question name="Quelle est la hauteur du Stade Olympique de Montreal ?" answer1="120m" answer2="300m" answer3="165m" answer4="IT OVER 9000 !!!" answer="165m">
 </Question>
-<Question name="Quel est le pourcentage de sirop d'erable canadien vendu dans le monde ?" answer1="56%" answer2="100%" answer3="99%" answer4="71%" answer="4">
+<Question name="Quel est le pourcentage de sirop d'erable canadien vendu dans le monde ?" answer1="56%" answer2="100%" answer3="99%" answer4="71%" answer="71%">
 </Question>
-<Question name="Quelle est la devise du Canada ?" answer1="A mari usque ad mare" answer2="un peuple, un but, une foi" answer3="Propter hoc project est nobis !" answer4="Senatus populusque romanus" answer="1">
+<Question name="Quelle est la devise du Canada ?" answer1="A mari usque ad mare" answer2="un peuple, un but, une foi" answer3="Propter hoc project est nobis !" answer4="Senatus populusque romanus" answer="A mari usque ad mare">
 </Question>
-<Question name="Dans quelle ville se trouve la CN Tower ?" answer1="Montreal" answer2="Toronto" answer3="Ontario" answer4="Ottawa" answer="2">
+<Question name="Dans quelle ville se trouve la CN Tower ?" answer1="Montreal" answer2="Toronto" answer3="Ontario" answer4="Ottawa" answer="Toronto">
 </Question>
-<Question name="Combien de variétés fromages le canada produit-il ? " answer1="150" answer2="Aucun" answer3="1000" answer4="600" answer="3">
+<Question name="Combien de variétés fromages le canada produit-il ? " answer1="150" answer2="Aucun" answer3="1000" answer4="600" answer="1000">
 </Question>
-<Question name="Quel est le fromage quebecois ayant gagne les World Cheese award en 2010 ?" answer1="un bleu" answer2="Impossible" answer3="Diffamation" answer4="Un camembert" answer="4">
+<Question name="Quel est le fromage quebecois ayant gagne les World Cheese award en 2010 ?" answer1="un bleu" answer2="Impossible" answer3="Diffamation" answer4="Un camembert" answer="Un camembert">
 </Question>
-<Question name="Quel est le type de gouvernement au Canada ?" answer1="Monarchie Constitutionnelle" answer2="Anarchie" answer3="Democratie" answer4="Monarchie absolue" answer="1">
+<Question name="Quel est le type de gouvernement au Canada ?" answer1="Monarchie Constitutionnelle" answer2="Anarchie" answer3="Democratie" answer4="Monarchie absolue" answer="Monarchie Constitutionnelle">
 </Question>
-<Question name="Lequel de ces animaux est l'emblème du Canada ?" answer1="Le Caribou" answer2="Le Castor" answer3="L'Ours" answer4="Le Raton laveur" answer="2">
+<Question name="Lequel de ces animaux est l'emblème du Canada ?" answer1="Le Caribou" answer2="Le Castor" answer3="L'Ours" answer4="Le Raton laveur" answer="Le Castor">
 </Question>
-<Question name="Quelle est la duree moyenne de l'hiver quebecois ?" answer1="1 mois" answer2="1 ans" answer3="C long sa mère" answer4="3 mois" answer="3">
+<Question name="Quelle est la duree moyenne de l'hiver quebecois ?" answer1="1 mois" answer2="1 ans" answer3="C long sa mère" answer4="3 mois" answer="C long sa mère">
 </Question>
-<Question name="Laquelle de ces villes n'est pas canadienne ?" answer1="Saint-Louis-du-Ha! Ha!" answer2="Moisie" answer3="La Guadeloupe" answer4="Saint-Francis" answer="4">
+<Question name="Laquelle de ces villes n'est pas canadienne ?" answer1="Saint-Louis-du-Ha! Ha!" answer2="Moisie" answer3="La Guadeloupe" answer4="Saint-Francis" answer="Saint-Francis">
 </Question>
-<Question name="Combien pèse la plus lourde poutine au monde ?" answer1="Un élan" answer2="Un caribou" answer3="Un renne" answer4="Un chevreuil" answer="1">
+<Question name="Combien pèse la plus lourde poutine au monde ?" answer1="Un élan" answer2="Un caribou" answer3="Un renne" answer4="Un chevreuil" answer="Un élan">
 </Question>
-<Question name="Laquelle de ces provinces n'existe pas ?" answer1="Saskatchewan" answer2="Territoires du Nord-Ouest" answer3="Manitoba" answer4="Île-du-Prince-Édouard" answer="2">
+<Question name="Laquelle de ces provinces n'existe pas ?" answer1="Saskatchewan" answer2="Territoires du Nord-Ouest" answer3="Manitoba" answer4="Île-du-Prince-Édouard" answer="Territoires du Nord-Ouest">
 </Question>
-<Question name="Quel est la province canadienne dont l'age legal de consommation du cannabis est le plus haut" answer1="Terre-Neuve et Labrador" answer2="L'Ontario" answer3="Le Quebec" answer4="Surf" answer="3">
+<Question name="Quel est la province canadienne dont l'age legal de consommation du cannabis est le plus haut" answer1="Terre-Neuve et Labrador" answer2="L'Ontario" answer3="Le Quebec" answer4="Surf" answer="Le Quebec">
 </Question>
-<Question name="Lequel de ces pays est plus grand que le parc national du Wood Buffalo ?" answer1="Les Pays-Bas" answer2="La Moldavie" answer3="La Suisse" answer4="Estonie" answer="4">
+<Question name="Lequel de ces pays est plus grand que le parc national du Wood Buffalo ?" answer1="Les Pays-Bas" answer2="La Moldavie" answer3="La Suisse" answer4="Estonie" answer="Estonie">
 </Question>
 </Quizz>
 </Questions>

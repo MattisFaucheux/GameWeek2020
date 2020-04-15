@@ -20,6 +20,10 @@ public class QuizzManager : MonoBehaviour
     public float m_questionsNbr = 5;
     private float m_totalQuestionsNbr = 20;
     private List<int> m_latestQuestionsIndex;
+
+    private List<int> m_randomQuestionsAnswer;
+    private int m_rand;
+
     public float m_goodAnswers = 0;
 
     void Start()
@@ -41,10 +45,46 @@ public class QuizzManager : MonoBehaviour
 
         m_question.text = m_actualQuizz.Questions[m_actualQuestionIndex].Name;
 
-        m_answers[0].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer1;
-        m_answers[1].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer2;
-        m_answers[2].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer3;
-        m_answers[3].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer4;
+        m_randomQuestionsAnswer = new List<int>();
+
+        RandomQuestionAnswer();
+
+    }
+
+    private void RandomQuestionAnswer()
+    {
+        GenerateRandomIndexAnswer();
+        m_answers[m_rand].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer1;
+        GenerateRandomIndexAnswer();
+        m_answers[m_rand].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer2;
+        GenerateRandomIndexAnswer();
+        m_answers[m_rand].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer3;
+        GenerateRandomIndexAnswer();
+        m_answers[m_rand].text = m_actualQuizz.Questions[m_actualQuestionIndex].Answer4;
+    }
+
+    private void GenerateRandomIndexAnswer()
+    {
+        if(m_rand == 2)
+        {
+            m_rand += 1;
+        }
+        else 
+        {
+            m_rand = Random.Range(0, 3);
+        }
+        
+
+        for (int i = 0; i < m_randomQuestionsAnswer.Count; i++)
+        {
+            if (m_randomQuestionsAnswer[i] == m_rand)
+            {
+                GenerateRandomIndexAnswer();
+                return;
+            }
+        }
+
+        m_randomQuestionsAnswer.Add(m_rand);
     }
 
     private void GetNextQuestionIndex()
@@ -66,9 +106,9 @@ public class QuizzManager : MonoBehaviour
         }
     }
 
-    public void CheckAnswer(int buttonIndex)
+    public void CheckAnswer(TMPro.TextMeshProUGUI buttonText)
     {
-        if(buttonIndex == m_actualQuizz.Questions[0].AnswerIndex)
+        if(buttonText.text == m_actualQuizz.Questions[m_actualQuestionIndex].AnswerText)
         {
             m_goodAnswers += 1;
         }
@@ -81,10 +121,10 @@ public class QuizzManager : MonoBehaviour
         {
             m_question.text = "GG";
 
-            m_answers[0].text = "";
-            m_answers[1].text = "";
-            m_answers[2].text = "";
-            m_answers[3].text = "";
+            m_answers[0].enabled = false;
+            m_answers[1].enabled = false;
+            m_answers[2].enabled = false;
+            m_answers[3].enabled = false;
         }
     }
 

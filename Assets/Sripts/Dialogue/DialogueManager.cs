@@ -15,9 +15,6 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject m_dialogueBox;
 
-    public float time_new_sentence = 3f;
-
-
     private Queue<string> sentences;
 
     void Start()
@@ -71,8 +68,6 @@ public class DialogueManager : MonoBehaviour
         {
             yield return null;
         }
-
-        //yield return new WaitForSeconds(time_new_sentence);
         DisplayNextSentence();
     }
 
