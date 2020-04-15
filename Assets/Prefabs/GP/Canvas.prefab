@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 7125746357952732983}
   - component: {fileID: 7125746357952732977}
   - component: {fileID: 7125746357952732979}
-  - component: {fileID: 178948133989058137}
+  - component: {fileID: 7434701119530154944}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   - {fileID: 1299750183086763577}
   - {fileID: 1299750184030442033}
   m_questionsNbr: 5
---- !u!114 &178948133989058137
+--- !u!114 &7434701119530154944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_timerObj: {fileID: 7125746358370807910}
   m_timerTxt: {fileID: 7125746358370807909}
-  m_initialTimer: 10
+  m_initialTimer: 100
   m_isFinished: 0
 --- !u!1 &7125746358370807910
 GameObject:

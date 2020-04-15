@@ -34,7 +34,11 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
+<<<<<<< HEAD:Assets/Prefabs/ART/TowerEiffel.fbx.meta
+    globalScale: 50
+=======
     globalScale: 5
+>>>>>>> master:Assets/Prefabs/ART/original asset/Balloon.fbx.meta
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -80,7 +84,11 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+<<<<<<< HEAD:Assets/Prefabs/ART/TowerEiffel.fbx.meta
+    globalScale: 0.5
+=======
     globalScale: 0.049999997
+>>>>>>> master:Assets/Prefabs/ART/original asset/Balloon.fbx.meta
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
