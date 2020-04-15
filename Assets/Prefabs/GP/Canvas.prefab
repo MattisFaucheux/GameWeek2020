@@ -1023,6 +1023,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_QuizzCanvas: {fileID: 7125746359215472670}
   m_playerScript: {fileID: 0}
+  m_audioSource: {fileID: 0}
+  m_musicAudioSource: {fileID: 0}
+  m_goodAnswer: {fileID: 8300000, guid: 737817ea140507f47ad2c2a006cdfa8a, type: 3}
+  m_badAnswer: {fileID: 8300000, guid: b27bb236d44463c45a93f3dcd5c9c7cd, type: 3}
+  m_clipStart: {fileID: 8300000, guid: 5a4ccfb0e1ea39b4d9b59f0c1965ddaf, type: 3}
+  m_perfect: {fileID: 8300000, guid: 5a899e985993d334d8eba3ab88b9c400, type: 3}
   m_FilePath: /XML/france.xml
   m_question: {fileID: 1299750183606156685}
   m_buttons:
@@ -1051,7 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_timerObj: {fileID: 7125746358370807910}
   m_timerTxt: {fileID: 7125746358370807909}
-  m_initialTimer: 10
+  m_initialTimer: 5
   m_isFinished: 0
 --- !u!1 &7125746358370807910
 GameObject:

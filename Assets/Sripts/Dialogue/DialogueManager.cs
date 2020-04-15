@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
 
-        while(!Input.GetButton("Interact"))
+        while(!Input.GetButtonDown("Interact"))
         {
             yield return null;
         }
