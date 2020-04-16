@@ -507,9 +507,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  pushPower: 3
+  pushPower: 4
   m_timeRespawnWater: 0.25
   m_dialogueManager: {fileID: 0}
+  m_playerModel: {fileID: 5465556110628371970}
+  m_rotateSpeed: 10
 --- !u!1001 &1054751186544071960
 PrefabInstance:
   m_ObjectHideFlags: 0
