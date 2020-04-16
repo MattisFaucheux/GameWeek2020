@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    [Header("Timer")]
     public GameObject m_timerObj;
-
     public TMPro.TextMeshProUGUI m_timerTxt;
     public float m_initialTimer;
     private float m_timer;
 
-    public bool m_isFinished = false;
-
+    [Header("Music")]
     public AudioSource m_musicAudioSource;
     public AudioClip m_music;
+
+    private bool m_isFinished = false;
 
     // Start is called before the first frame update
     void Start()

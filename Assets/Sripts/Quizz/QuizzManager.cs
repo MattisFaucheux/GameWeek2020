@@ -7,11 +7,13 @@ using System.Xml.Serialization;
 
 public class QuizzManager : MonoBehaviour
 {
+    [Header("Link Objects")]
     public GameObject m_QuizzCanvas;
     public Player m_playerScript;
     public EventSystem m_eventSystem;
     private DialogueManager m_dialogueManager;
 
+    [Header("Audio")]
     public AudioSource m_audioSource;
     public AudioSource m_musicAudioSource;
     public AudioClip m_goodAnswer;
@@ -20,36 +22,30 @@ public class QuizzManager : MonoBehaviour
     public AudioClip m_perfect;
     public AudioClip m_music;
 
+    [Header("Questions")]
     public string m_FilePath;
-
     public TMPro.TextMeshProUGUI m_question;
     public GameObject[] m_buttons;
     public TMPro.TextMeshProUGUI[] m_answers;
-
-    private GameObject m_lastButtonPressed;
-
-    private Quizz m_actualQuizz;
-
-    private int m_actualQuestionIndex = 0;
     public float m_questionsNbr = 5;
+    public float m_goodAnswers = 0;
+    public float m_waitForNextQuestion = 2;
+    public int m_timeForQuestion = 10;
+    public bool m_questionIsAnswered = false;
+    private GameObject m_lastButtonPressed;
+    private Quizz m_actualQuizz;
+    private int m_actualQuestionIndex = 0;
     private float m_totalQuestionsNbr = 20;
     private List<int> m_latestQuestionsIndex;
-
     private List<int> m_randomQuestionsAnswer;
     private int m_rand;
 
-    public float m_goodAnswers = 0;
-    public float m_waitForNextQuestion = 2;
-
-    public int m_timeForQuestion = 10;
-
-    public bool m_questionIsAnswered = false;
-
-
-    private float m_timer;
+    [Header("Timer")]
     public TMPro.TextMeshProUGUI m_timerTxt;
     public GameObject m_timerObj;
+    private float m_timer;
 
+    [Header("Balloons")]
     public TMPro.TextMeshProUGUI m_BalloonTxt;
     public GameObject m_balloonObj;
 
@@ -84,6 +80,25 @@ public class QuizzManager : MonoBehaviour
 
     }
 
+    private void GetNextQuestionIndex()
+    {
+        m_actualQuestionIndex = Random.Range(0, (int)(m_totalQuestionsNbr));
+
+        if (m_latestQuestionsIndex == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < m_latestQuestionsIndex.Count; i++)
+        {
+            if (m_latestQuestionsIndex[i] == m_actualQuestionIndex)
+            {
+                GetNextQuestionIndex();
+                return;
+            }
+        }
+    }
+
     private void RandomQuestionAnswer()
     {
         GenerateRandomIndexAnswer();
@@ -112,25 +127,6 @@ public class QuizzManager : MonoBehaviour
         }
 
         m_randomQuestionsAnswer.Add(m_rand);
-    }
-
-    private void GetNextQuestionIndex()
-    {
-        m_actualQuestionIndex = Random.Range(0, (int)(m_totalQuestionsNbr));
-
-        if(m_latestQuestionsIndex == null)
-        {
-            return;
-        }
-
-        for (int i = 0; i < m_latestQuestionsIndex.Count; i++)
-        {
-            if (m_latestQuestionsIndex[i] == m_actualQuestionIndex)
-            {
-                GetNextQuestionIndex();
-                return;
-            }
-        }
     }
 
     public void CheckAnswer(GameObject button)
@@ -203,58 +199,6 @@ public class QuizzManager : MonoBehaviour
         StartCoroutine(WaitStartQuizz());
     }
 
-    IEnumerator WaitStartQuizz()
-    {
-        yield return new WaitForSecondsRealtime(m_clipStart.length);
-        m_balloonObj.SetActive(true);
-        m_QuizzCanvas.SetActive(true);
-        NextQuestion();
-        m_musicAudioSource.clip = m_music;
-        m_musicAudioSource.loop = true;
-        m_musicAudioSource.Play();
-        m_timerObj.SetActive(true);
-    }
-
-    IEnumerator WaitForNextQuestion()
-    {
-        yield return new WaitForSeconds(m_waitForNextQuestion);
-        if (m_lastButtonPressed)
-        {
-            m_lastButtonPressed.GetComponent<Image>().color = Color.white;
-        }
-        m_eventSystem.enabled = true;
-        NextQuestion();
-    }
-
-    IEnumerator WaitEndQuizz()
-    {
-        yield return new WaitForSeconds(m_waitForNextQuestion);
-        if (m_lastButtonPressed)
-        {
-            m_lastButtonPressed.GetComponent<Image>().color = Color.white;
-        }
-        m_eventSystem.enabled = true;
-
-        EndQuizz();
-
-    }
-
-    IEnumerator QuestionTime()
-    {
-        m_timer = m_timeForQuestion;
-
-        for(int i=0; i < m_timeForQuestion; i++)
-        {
-            m_timer -= 1;
-            string minutes = Mathf.Floor(m_timer / 60).ToString("00");
-            string seconds = (m_timer % 60).ToString("00");
-            m_timerTxt.text = string.Format("{0}:{1}", minutes, seconds);
-            yield return new WaitForSecondsRealtime(1);
-        }
-
-        EndOfTime();
-    }
-
     public void EndQuizz()
     {
         m_timerObj.SetActive(false);
@@ -274,4 +218,58 @@ public class QuizzManager : MonoBehaviour
             m_buttons[i].SetActive(false);
         }
     }
+
+    IEnumerator WaitStartQuizz()
+    {
+        yield return new WaitForSecondsRealtime(m_clipStart.length);
+        m_balloonObj.SetActive(true);
+        m_QuizzCanvas.SetActive(true);
+        NextQuestion();
+        m_musicAudioSource.clip = m_music;
+        m_musicAudioSource.loop = true;
+        m_musicAudioSource.Play();
+        m_timerObj.SetActive(true);
+    }
+
+    IEnumerator WaitEndQuizz()
+    {
+        yield return new WaitForSeconds(m_waitForNextQuestion);
+        if (m_lastButtonPressed)
+        {
+            m_lastButtonPressed.GetComponent<Image>().color = Color.white;
+        }
+        m_eventSystem.enabled = true;
+
+        EndQuizz();
+
+    }
+
+    IEnumerator WaitForNextQuestion()
+    {
+        yield return new WaitForSeconds(m_waitForNextQuestion);
+        if (m_lastButtonPressed)
+        {
+            m_lastButtonPressed.GetComponent<Image>().color = Color.white;
+        }
+        m_eventSystem.enabled = true;
+        NextQuestion();
+    }
+
+    IEnumerator QuestionTime()
+    {
+        m_timer = m_timeForQuestion;
+
+        for(int i=0; i < m_timeForQuestion; i++)
+        {
+            m_timer -= 1;
+            string minutes = Mathf.Floor(m_timer / 60).ToString("00");
+            string seconds = (m_timer % 60).ToString("00");
+            m_timerTxt.text = string.Format("{0}:{1}", minutes, seconds);
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        EndOfTime();
+    }
+
+
 }

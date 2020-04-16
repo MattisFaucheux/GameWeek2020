@@ -8,15 +8,11 @@ public class DialogueManager : MonoBehaviour
 {
     public Player m_playerScript;
 
+    [Header("Dialogue")]
     public TMPro.TextMeshProUGUI m_nameText;
     public TMPro.TextMeshProUGUI m_dialogueText;
-
-    //public Animator animator;
-
     public GameObject m_dialogueBox;
-
     private Queue<string> sentences;
-
     private float m_speedDialogue = 0;
 
     void Start()
