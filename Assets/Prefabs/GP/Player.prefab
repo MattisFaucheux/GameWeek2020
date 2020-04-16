@@ -537,9 +537,9 @@ MonoBehaviour:
   controller: {fileID: 9095773716575018819}
   playerSpeed: 9
   gravity: -50
-  jumpHeight: 3.5
+  jumpHeight: 4
   sprintSpeed: 1.5
-  pushPower: 4
+  pushPower: 4.5
   groundCheck: {fileID: 9095773714827261255}
   groundDistance: 0.4
   groundMask:
@@ -552,6 +552,7 @@ MonoBehaviour:
   m_balloonObj: {fileID: 0}
   m_camFade: {fileID: 782432919562026272}
   m_dialogueManager: {fileID: 0}
+  m_tpQuizz: {fileID: 0}
 --- !u!1001 &1054751186544071960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -567,7 +568,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9837e70f593d4e348baea2fa9b2b43aa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.92
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9837e70f593d4e348baea2fa9b2b43aa,
         type: 3}
