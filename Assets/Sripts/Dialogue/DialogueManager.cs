@@ -28,7 +28,7 @@ public class DialogueManager : MonoBehaviour
         m_playerScript.enabled = false;
         //animator.SetBool("IsOpen", true);
         m_dialogueBox.SetActive(true);
-        m_nameText.text = dialogue.name;
+        m_nameText.text = dialogue.m_name;
 
         sentences.Clear();
 
