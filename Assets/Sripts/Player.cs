@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
 
     public DialogueManager m_dialogueManager;
 
+    public Transform m_playerModel;
+    public float m_rotateSpeed = 20f;
+
     private void Start()
     {
         m_spawnPoint = transform.position;
@@ -69,7 +72,28 @@ public class Player : MonoBehaviour
         {
             m_triggerOnceInteract = false;
         }
-        
+
+        RotatePlayer();
+    }
+
+    private void RotatePlayer()
+    {
+        Vector3 dir;
+
+        if (Input.GetAxis("Vertical") <= 0.3 && Input.GetAxis("Vertical") >= -0.3 &&
+            Input.GetAxis("Horizontal") <= 0.3 && Input.GetAxis("Horizontal") >= -0.3)
+        {
+            dir = new Vector3(1, 90, 0);
+        }
+        else
+        {
+            dir = new Vector3(Input.GetAxis("Vertical"), 90, -Input.GetAxis("Horizontal"));
+        }
+        Quaternion Rotation = Quaternion.LookRotation(dir);
+
+
+        m_playerModel.rotation = Quaternion.Lerp(m_playerModel.rotation, Rotation, m_rotateSpeed * Time.deltaTime);
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -100,26 +124,18 @@ public class Player : MonoBehaviour
     {
         Rigidbody body = hit.collider.attachedRigidbody;
 
-
-        // no rigidbody
         if (body == null || body.isKinematic) 
         { 
             return; 
         }
 
-        // We dont want to push objects below us
         if (hit.moveDirection.y < -0.3) 
         { 
             return; 
         }
 
-        // Calculate push direction from move direction,
-        // we only push objects to the sides never up and down
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
 
-        // If you know how fast your character is trying to move,
-        // then you can also multiply the push velocity by that.
-        // Apply the push
         body.velocity = pushDir * pushPower;
 
     }
