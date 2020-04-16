@@ -12,9 +12,15 @@ public class Timer : MonoBehaviour
 
     public bool m_isFinished = false;
 
+    public AudioSource m_musicAudioSource;
+    public AudioClip m_music;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_musicAudioSource.clip = m_music;
+        m_musicAudioSource.loop = true;
+        m_musicAudioSource.Play();
         m_timer = m_initialTimer;
     }
 
@@ -42,6 +48,7 @@ public class Timer : MonoBehaviour
 
     private void EndOfTimer()
     {
+        m_musicAudioSource.Stop();
         m_isFinished = true;
         GetComponent<QuizzManager>().ActivateQuizz();
         m_timerObj.SetActive(false);

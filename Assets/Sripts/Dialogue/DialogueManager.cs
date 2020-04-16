@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private float m_speedDialogue = 0;
+
     void Start()
     {
         m_dialogueBox.SetActive(false);
@@ -25,6 +27,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialogue.m_audioSource.PlayOneShot(dialogue.m_sound);
+        m_speedDialogue = dialogue.m_speedDialogue;
         m_playerScript.enabled = false;
         //animator.SetBool("IsOpen", true);
         m_dialogueBox.SetActive(true);
@@ -32,9 +36,17 @@ public class DialogueManager : MonoBehaviour
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        if(dialogue.m_randomSentence)
         {
-            sentences.Enqueue(sentence);
+            int rand = Random.Range(0, dialogue.sentences.Length);
+            sentences.Enqueue(dialogue.sentences[rand]);
+        }
+        else
+        {
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
         }
 
         DisplayNextSentence();
@@ -61,7 +73,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             m_dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(m_speedDialogue);
         }
 
         while(!Input.GetButtonDown("Interact"))
@@ -73,6 +85,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        m_speedDialogue = 0;
         m_playerScript.enabled = true;
         //animator.SetBool("IsOpen", false);
         m_dialogueBox.SetActive(false);
