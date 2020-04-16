@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     private bool m_triggerOnceInteract = false;
 
+    public Transform m_tpQuizz;
+
     private void Start()
     {
         m_camFade.RedoFade();
@@ -168,5 +170,16 @@ public class Player : MonoBehaviour
 
         body.velocity = pushDir * pushPower;
 
+    }
+
+    public void TpQuizz()
+    {
+        controller.enabled = false;
+        transform.position = m_tpQuizz.position;
+        controller.enabled = true;
+
+        Vector3 dir = new Vector3(-1, 90, 0);
+        Quaternion Rotation = Quaternion.LookRotation(dir);
+        m_playerModel.rotation = Quaternion.Lerp(m_playerModel.rotation, Rotation, 200 * Time.deltaTime);
     }
 }

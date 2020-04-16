@@ -11,6 +11,7 @@ public class QuizzManager : MonoBehaviour
     public GameObject m_QuizzCanvas;
     public Player m_playerScript;
     public EventSystem m_eventSystem;
+    public GameObject m_mainCam;
     private DialogueManager m_dialogueManager;
 
     [Header("Audio")]
@@ -221,7 +222,13 @@ public class QuizzManager : MonoBehaviour
 
     IEnumerator WaitStartQuizz()
     {
-        yield return new WaitForSecondsRealtime(m_clipStart.length);
+        
+        yield return new WaitForSecondsRealtime(m_clipStart.length/2);
+        m_mainCam.GetComponent<FadeCamera1>().RedoFade();
+        yield return new WaitForSecondsRealtime(m_clipStart.length / 4);
+        m_playerScript.TpQuizz();
+        m_playerScript.enabled = false;
+        yield return new WaitForSecondsRealtime(m_clipStart.length / 4);
         m_balloonObj.SetActive(true);
         m_QuizzCanvas.SetActive(true);
         NextQuestion();
