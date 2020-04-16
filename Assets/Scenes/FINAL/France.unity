@@ -1478,7 +1478,7 @@ PrefabInstance:
     - target: {fileID: 7434701119530154944, guid: 5264335c36300f14fb1c05696b1ff7b0,
         type: 3}
       propertyPath: m_initialTimer
-      value: 45
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7434701119530154944, guid: 5264335c36300f14fb1c05696b1ff7b0,
         type: 3}
@@ -30260,6 +30260,11 @@ PrefabInstance:
       propertyPath: m_tpQuizz
       value: 
       objectReference: {fileID: 898984949}
+    - target: {fileID: 9095773716575018818, guid: e9df43f0f6dd2df4f80a2c6ea65c6d3d,
+        type: 3}
+      propertyPath: pushPower
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9095773716575018819, guid: e9df43f0f6dd2df4f80a2c6ea65c6d3d,
         type: 3}
       propertyPath: m_Center.y
