@@ -33,7 +33,9 @@ public class Player : MonoBehaviour
     private Vector3 m_lastDir = new Vector3(1, 90, 0);
 
     public static float m_numberBalloons;
-    public float m_balloons;
+
+    public TMPro.TextMeshProUGUI m_BalloonTxt;
+    public GameObject m_balloonObj;
 
     private void Start()
     {
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        m_balloons = m_numberBalloons;
+        m_BalloonTxt.text = m_numberBalloons.ToString();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -112,6 +114,7 @@ public class Player : MonoBehaviour
             Baguette baguette = other.gameObject.GetComponent<Baguette>();
             if (baguette)
             {
+                baguette.m_audioSource.Stop();
                 baguette.m_audioSource.PlayOneShot(baguette.m_sound);
             }
 

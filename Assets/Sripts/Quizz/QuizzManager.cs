@@ -50,17 +50,16 @@ public class QuizzManager : MonoBehaviour
     public TMPro.TextMeshProUGUI m_timerTxt;
     public GameObject m_timerObj;
 
+    public TMPro.TextMeshProUGUI m_BalloonTxt;
+    public GameObject m_balloonObj;
+
+
     void Start()
     {
         m_dialogueManager = GetComponent<DialogueManager>();
 
         m_QuizzCanvas.SetActive(false);
         m_actualQuizz = Quizz.LoadFromFile(Application.dataPath + m_FilePath);
-    }
-
-    public void Update()
-    {
-
     }
 
     public void NextQuestion()
@@ -147,6 +146,8 @@ public class QuizzManager : MonoBehaviour
         if (buttonText.text == m_actualQuizz.Questions[m_actualQuestionIndex].AnswerText)
         {
             m_goodAnswers += 1;
+            Player.m_numberBalloons += 1;
+            m_BalloonTxt.text = Player.m_numberBalloons.ToString();
             button.GetComponent<Image>().color = Color.green;
             
             m_audioSource.clip = m_goodAnswer;
@@ -191,9 +192,12 @@ public class QuizzManager : MonoBehaviour
 
     public void ActivateQuizz()
     {
+        m_audioSource.Stop();
+        m_musicAudioSource.Stop();
         m_audioSource.clip = m_clipStart;
         m_audioSource.Play();
         m_dialogueManager.EndDialogue();
+        m_balloonObj.SetActive(false);
         m_playerScript.enabled = false;
 
         StartCoroutine(WaitStartQuizz());
@@ -202,6 +206,7 @@ public class QuizzManager : MonoBehaviour
     IEnumerator WaitStartQuizz()
     {
         yield return new WaitForSecondsRealtime(m_clipStart.length);
+        m_balloonObj.SetActive(true);
         m_QuizzCanvas.SetActive(true);
         NextQuestion();
         m_musicAudioSource.clip = m_music;
@@ -254,7 +259,6 @@ public class QuizzManager : MonoBehaviour
     {
         m_timerObj.SetActive(false);
         m_playerScript.enabled = true;
-        Player.m_numberBalloons += m_goodAnswers;
         m_playerScript.enabled = false;
 
         if (m_goodAnswers == m_questionsNbr)
