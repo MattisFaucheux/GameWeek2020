@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GP/TestProg.unity
-    guid: c7a212e236d78b443a39452f51c9b07f
+    path: Assets/Scenes/FINAL/Main Menu.unity
+    guid: f715cb7b79cfdf34fa59ae2695951f05
+  - enabled: 1
+    path: Assets/Scenes/FINAL/France.unity
+    guid: ff4363e0a26bb2d47be9e57ec2cea047
   m_configObjects: {}
