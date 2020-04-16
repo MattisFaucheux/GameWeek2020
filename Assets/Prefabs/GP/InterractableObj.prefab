@@ -120,7 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e445ea15bd7bc1a45bffed2cfc373c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Panneau
+  m_audioSource: {fileID: 0}
+  m_sound: {fileID: 0}
+  m_randomSentence: 0
+  m_speedDialogue: 0
+  m_name: 'Information :'
   sentences:
-  - hahahahhahahahahahhaaah
-  - ahaahahahahahahahahahahaha
+  - "La tour effeil a \xE9tait construite en 1889."
+  - "Elle mesure 324 m\xE8tre de haut et p\xE8se plus de 10 000 tonnes !"

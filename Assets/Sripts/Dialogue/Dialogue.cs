@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
+    public AudioSource m_audioSource;
+    public AudioClip m_sound;
+
+    public bool m_randomSentence = false;
+    public float m_speedDialogue = 0;
     public string m_name;
 
     [TextArea(3, 10)]

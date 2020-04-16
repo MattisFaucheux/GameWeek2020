@@ -30,6 +30,12 @@ public class Player : MonoBehaviour
 
     public Transform m_playerModel;
     public float m_rotateSpeed = 20f;
+    private Vector3 m_lastDir = new Vector3(1, 90, 0);
+
+    public static float m_numberBalloons;
+
+    public TMPro.TextMeshProUGUI m_BalloonTxt;
+    public GameObject m_balloonObj;
 
     private void Start()
     {
@@ -39,6 +45,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        m_BalloonTxt.text = m_numberBalloons.ToString();
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -83,11 +91,12 @@ public class Player : MonoBehaviour
         if (Input.GetAxis("Vertical") <= 0.3 && Input.GetAxis("Vertical") >= -0.3 &&
             Input.GetAxis("Horizontal") <= 0.3 && Input.GetAxis("Horizontal") >= -0.3)
         {
-            dir = new Vector3(1, 90, 0);
+            dir = m_lastDir;
         }
         else
         {
             dir = new Vector3(Input.GetAxis("Vertical"), 90, -Input.GetAxis("Horizontal"));
+            m_lastDir = dir;
         }
         Quaternion Rotation = Quaternion.LookRotation(dir);
 
@@ -101,13 +110,29 @@ public class Player : MonoBehaviour
         if(Input.GetButton("Interact") && !m_triggerOnceInteract && other.gameObject.CompareTag("InteractObject"))
         {
             m_triggerOnceInteract = true;
-            m_dialogueManager.StartDialogue(other.gameObject.GetComponent<Dialogue>());
-        }
-        if(other.gameObject.CompareTag("Water"))
-        {
 
+            Baguette baguette = other.gameObject.GetComponent<Baguette>();
+            if (baguette)
+            {
+                baguette.m_audioSource.Stop();
+                baguette.m_audioSource.PlayOneShot(baguette.m_sound);
+            }
+
+            if (other.gameObject.GetComponent<Dialogue>())
+            {
+                m_dialogueManager.StartDialogue(other.gameObject.GetComponent<Dialogue>());
+            }
+        }
+        else if(other.gameObject.CompareTag("Water"))
+        {
             StartCoroutine(RespawnWater());
         }
+        else if(other.gameObject.CompareTag("Balloon"))
+        {
+            m_numberBalloons += 1;
+            Destroy(other.gameObject);
+        }
+
     }
 
 

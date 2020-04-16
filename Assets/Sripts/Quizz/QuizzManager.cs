@@ -18,6 +18,7 @@ public class QuizzManager : MonoBehaviour
     public AudioClip m_badAnswer;
     public AudioClip m_clipStart;
     public AudioClip m_perfect;
+    public AudioClip m_music;
 
     public string m_FilePath;
 
@@ -39,6 +40,19 @@ public class QuizzManager : MonoBehaviour
 
     public float m_goodAnswers = 0;
     public float m_waitForNextQuestion = 2;
+
+    public int m_timeForQuestion = 10;
+
+    public bool m_questionIsAnswered = false;
+
+
+    private float m_timer;
+    public TMPro.TextMeshProUGUI m_timerTxt;
+    public GameObject m_timerObj;
+
+    public TMPro.TextMeshProUGUI m_BalloonTxt;
+    public GameObject m_balloonObj;
+
 
     void Start()
     {
@@ -66,6 +80,8 @@ public class QuizzManager : MonoBehaviour
 
         RandomQuestionAnswer();
 
+        StartCoroutine(QuestionTime());
+
     }
 
     private void RandomQuestionAnswer()
@@ -82,14 +98,8 @@ public class QuizzManager : MonoBehaviour
 
     private void GenerateRandomIndexAnswer()
     {
-        if(m_rand == 2)
-        {
-            m_rand += 1;
-        }
-        else 
-        {
-            m_rand = Random.Range(0, 3);
-        }
+       m_rand = Random.Range(0, 4);
+
         
 
         for (int i = 0; i < m_randomQuestionsAnswer.Count; i++)
@@ -106,7 +116,7 @@ public class QuizzManager : MonoBehaviour
 
     private void GetNextQuestionIndex()
     {
-        m_actualQuestionIndex = Random.Range(0, (int)(m_totalQuestionsNbr - 1));
+        m_actualQuestionIndex = Random.Range(0, (int)(m_totalQuestionsNbr));
 
         if(m_latestQuestionsIndex == null)
         {
@@ -125,6 +135,8 @@ public class QuizzManager : MonoBehaviour
 
     public void CheckAnswer(GameObject button)
     {
+        StopAllCoroutines();
+
         m_eventSystem.enabled = false;
 
         TMPro.TextMeshProUGUI buttonText = button.GetComponentInChildren<TMPro.TextMeshProUGUI>();
@@ -134,6 +146,8 @@ public class QuizzManager : MonoBehaviour
         if (buttonText.text == m_actualQuizz.Questions[m_actualQuestionIndex].AnswerText)
         {
             m_goodAnswers += 1;
+            Player.m_numberBalloons += 1;
+            m_BalloonTxt.text = Player.m_numberBalloons.ToString();
             button.GetComponent<Image>().color = Color.green;
             
             m_audioSource.clip = m_goodAnswer;
@@ -153,44 +167,111 @@ public class QuizzManager : MonoBehaviour
         }
         else
         {
-            if(m_goodAnswers == m_questionsNbr)
-            {
-                m_musicAudioSource.Stop();
-                m_musicAudioSource.PlayOneShot(m_perfect);
-            }
+            StartCoroutine(WaitEndQuizz());
+            
+        }
+    }
 
+    public void EndOfTime()
+    {
+        m_eventSystem.enabled = false;
 
-            m_question.text = "GG";
+        m_audioSource.clip = m_badAnswer;
+        m_audioSource.Play();
+    
 
-            for(int i=0; i< 4; i++)
-            {
-                m_buttons[i].SetActive(false);
-            }
+        if (m_latestQuestionsIndex.Count<m_questionsNbr)
+        {
+            StartCoroutine(WaitForNextQuestion());
+}
+        else
+        {
+            StartCoroutine(WaitEndQuizz());
         }
     }
 
     public void ActivateQuizz()
     {
+        m_audioSource.Stop();
+        m_musicAudioSource.Stop();
         m_audioSource.clip = m_clipStart;
         m_audioSource.Play();
         m_dialogueManager.EndDialogue();
+        m_balloonObj.SetActive(false);
         m_playerScript.enabled = false;
+
         StartCoroutine(WaitStartQuizz());
     }
 
     IEnumerator WaitStartQuizz()
     {
         yield return new WaitForSecondsRealtime(m_clipStart.length);
+        m_balloonObj.SetActive(true);
         m_QuizzCanvas.SetActive(true);
         NextQuestion();
+        m_musicAudioSource.clip = m_music;
+        m_musicAudioSource.loop = true;
         m_musicAudioSource.Play();
+        m_timerObj.SetActive(true);
     }
 
     IEnumerator WaitForNextQuestion()
     {
         yield return new WaitForSeconds(m_waitForNextQuestion);
-        m_lastButtonPressed.GetComponent<Image>().color = Color.white;
+        if (m_lastButtonPressed)
+        {
+            m_lastButtonPressed.GetComponent<Image>().color = Color.white;
+        }
         m_eventSystem.enabled = true;
         NextQuestion();
+    }
+
+    IEnumerator WaitEndQuizz()
+    {
+        yield return new WaitForSeconds(m_waitForNextQuestion);
+        if (m_lastButtonPressed)
+        {
+            m_lastButtonPressed.GetComponent<Image>().color = Color.white;
+        }
+        m_eventSystem.enabled = true;
+
+        EndQuizz();
+
+    }
+
+    IEnumerator QuestionTime()
+    {
+        m_timer = m_timeForQuestion;
+
+        for(int i=0; i < m_timeForQuestion; i++)
+        {
+            m_timer -= 1;
+            string minutes = Mathf.Floor(m_timer / 60).ToString("00");
+            string seconds = (m_timer % 60).ToString("00");
+            m_timerTxt.text = string.Format("{0}:{1}", minutes, seconds);
+            yield return new WaitForSecondsRealtime(1);
+        }
+
+        EndOfTime();
+    }
+
+    public void EndQuizz()
+    {
+        m_timerObj.SetActive(false);
+        m_playerScript.enabled = true;
+        m_playerScript.enabled = false;
+
+        if (m_goodAnswers == m_questionsNbr)
+        {
+            m_musicAudioSource.Stop();
+            m_musicAudioSource.PlayOneShot(m_perfect);
+        }
+
+        m_question.text = "GG";
+
+        for (int i = 0; i < 4; i++)
+        {
+            m_buttons[i].SetActive(false);
+        }
     }
 }
