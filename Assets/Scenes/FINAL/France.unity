@@ -1478,7 +1478,7 @@ PrefabInstance:
     - target: {fileID: 7434701119530154944, guid: 5264335c36300f14fb1c05696b1ff7b0,
         type: 3}
       propertyPath: m_initialTimer
-      value: 1
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7434701119530154944, guid: 5264335c36300f14fb1c05696b1ff7b0,
         type: 3}
