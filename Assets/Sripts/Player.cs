@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Movement")]
     public CharacterController controller;
     public float playerSpeed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public float sprintSpeed = 2f;
-
+    public float pushPower = 2.0f;
     private Vector3 velocity;
 
+    [Header("Ground")]
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
 
-
-    public float pushPower = 2.0f;
-
+    [Header("Respawn")]
     public float m_timeRespawnWater = 1.0f;
     private Vector3 m_spawnPoint;
 
-
-    private bool m_triggerOnceInteract = false;
-
-    public DialogueManager m_dialogueManager;
-
+    [Header("Rotate Model")]
     public Transform m_playerModel;
     public float m_rotateSpeed = 20f;
     private Vector3 m_lastDir = new Vector3(1, 90, 0);
 
+    [Header("Balloon")]
     public static float m_numberBalloons;
-
     public TMPro.TextMeshProUGUI m_BalloonTxt;
     public GameObject m_balloonObj;
+
+    public DialogueManager m_dialogueManager;
+
+    private bool m_triggerOnceInteract = false;
 
     private void Start()
     {

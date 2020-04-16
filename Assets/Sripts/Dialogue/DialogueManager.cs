@@ -8,16 +8,16 @@ public class DialogueManager : MonoBehaviour
 {
     public Player m_playerScript;
 
+    [Header("Dialogue")]
     public TMPro.TextMeshProUGUI m_nameText;
     public TMPro.TextMeshProUGUI m_dialogueText;
-
-    //public Animator animator;
-
     public GameObject m_dialogueBox;
-
     private Queue<string> sentences;
-
     private float m_speedDialogue = 0;
+
+
+    private AudioSource m_audioSource;
+    private AudioClip m_sound;
 
     void Start()
     {
@@ -27,7 +27,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        dialogue.m_audioSource.PlayOneShot(dialogue.m_sound);
+        m_audioSource = dialogue.m_audioSource;
+        m_sound = dialogue.m_sound;
+
+        
         m_speedDialogue = dialogue.m_speedDialogue;
         m_playerScript.enabled = false;
         //animator.SetBool("IsOpen", true);
@@ -59,7 +62,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
+        m_audioSource.PlayOneShot(m_sound);
         string sentence = sentences.Dequeue();
         //dialogueText.text = sentence;
 
