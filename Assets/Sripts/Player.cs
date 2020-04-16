@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
 
     [Header("Respawn")]
     public float m_timeRespawnWater = 1.0f;
-    private Vector3 m_spawnPoint;
 
     [Header("Rotate Model")]
     public Transform m_playerModel;
@@ -41,12 +40,11 @@ public class Player : MonoBehaviour
     private bool m_triggerOnceInteract = false;
 
     public Transform m_tpQuizz;
+    public Transform m_spawnPoint;
 
     private void Start()
     {
         m_camFade.RedoFade();
-
-        m_spawnPoint = transform.position;
 
     }
 
@@ -147,7 +145,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(m_timeRespawnWater);
         controller.enabled = false;
-        transform.position = m_spawnPoint;
+        transform.position = m_spawnPoint.position;
         controller.enabled = true;
     }
 
