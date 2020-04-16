@@ -221,6 +221,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: 5dde53ed5e1a57c4ebb4745b8824d114, type: 3}
+--- !u!65 &41779805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41779800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14670122, y: 0.0938613, z: 0.11445444}
+  m_Center: {x: 0.0021916707, y: 0.00094950217, z: -0.0034725724}
 --- !u!1001 &83559304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,11 +686,6 @@ PrefabInstance:
       propertyPath: m_dialogueManager
       value: 
       objectReference: {fileID: 239383744}
-    - target: {fileID: 9095773716575018818, guid: e9df43f0f6dd2df4f80a2c6ea65c6d3d,
-        type: 3}
-      propertyPath: pushPower
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 9095773716575018821, guid: e9df43f0f6dd2df4f80a2c6ea65c6d3d,
         type: 3}
       propertyPath: m_Name
@@ -2033,6 +2041,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5dde53ed5e1a57c4ebb4745b8824d114,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dde53ed5e1a57c4ebb4745b8824d114, type: 3}
 --- !u!1 &231551882
@@ -2854,9 +2867,11 @@ GameObject:
   - component: {fileID: 311217845}
   - component: {fileID: 311217844}
   - component: {fileID: 311217843}
+  - component: {fileID: 311217847}
+  - component: {fileID: 311217846}
   m_Layer: 0
-  m_Name: souris
-  m_TagString: Untagged
+  m_Name: "R\xE9my"
+  m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2869,7 +2884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311217841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.4, y: 1.56, z: 25.4}
+  m_LocalPosition: {x: 27.2, y: 0.31, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1427646481}
@@ -2936,6 +2951,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311217841}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &311217846
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311217841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7295475, y: 2, z: 2.4789715}
+  m_Center: {x: 0.03609562, y: 0, z: 0.03872204}
+--- !u!114 &311217847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311217841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e445ea15bd7bc1a45bffed2cfc373c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name: "R\xE9my"
+  sentences:
+  - J'ai faim.
+  - Savais-tu que la france produisait 1 milliard de tonnes de fromage par ans !
+  - Dont 1200 varietes differentes ?!
 --- !u!1001 &315062849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12854,9 +12899,11 @@ GameObject:
   - component: {fileID: 761682173}
   - component: {fileID: 761682172}
   - component: {fileID: 761682171}
+  - component: {fileID: 761682176}
+  - component: {fileID: 761682175}
   m_Layer: 8
   m_Name: Eglise
-  m_TagString: Untagged
+  m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13151,6 +13198,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761682169}
   m_Mesh: {fileID: 2134575206}
+--- !u!114 &761682175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761682169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e445ea15bd7bc1a45bffed2cfc373c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name: Donatardo
+  sentences:
+  - Waw c'est tellement beau, il doit bien en avoir 45 mille autres comme ca !
+--- !u!65 &761682176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761682169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.715069, y: 8.587025, z: 12.332423}
+  m_Center: {x: 0.6424627, y: 4.2935123, z: -3.833796}
 --- !u!1001 &769629952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13489,9 +13564,11 @@ GameObject:
   - component: {fileID: 826218629}
   - component: {fileID: 826218628}
   - component: {fileID: 826218627}
+  - component: {fileID: 826218631}
+  - component: {fileID: 826218630}
   m_Layer: 0
   m_Name: racoon
-  m_TagString: Untagged
+  m_TagString: InteractObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13571,6 +13648,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826218625}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &826218630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826218625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e445ea15bd7bc1a45bffed2cfc373c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name: Bedo
+  sentences:
+  - Man, y a beaucoup TROP de pigeon ici !!
+  - Man,tu connais la ville de Y.....
+  - "J'ai pris option p\xE9tanque au bac, man..."
+--- !u!65 &826218631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826218625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.497078, y: 4.4879117, z: 1.5326959}
+  m_Center: {x: -0.03845787, y: -0.055484533, z: -0.2663479}
 --- !u!1 &845799064 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 045ceb39da43b2b43b61432273d51592,
@@ -20460,7 +20567,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19192
+  m_Name: pb_Mesh14822
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
