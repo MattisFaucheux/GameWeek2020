@@ -33,12 +33,17 @@ public class Player : MonoBehaviour
     public TMPro.TextMeshProUGUI m_BalloonTxt;
     public GameObject m_balloonObj;
 
+
+    public FadeCamera m_camFade;
+
     public DialogueManager m_dialogueManager;
 
     private bool m_triggerOnceInteract = false;
 
     private void Start()
     {
+        m_camFade.RedoFade();
+
         m_spawnPoint = transform.position;
 
     }
