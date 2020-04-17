@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 419698804}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &343745408
@@ -2496,7 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738be80c576f061459e10b9230fdc01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ballonsNeedTxt: {fileID: 1648909046}
+  m_balloonsNeedTxt: {fileID: 1648909046}
 --- !u!114 &1884018829
 MonoBehaviour:
   m_ObjectHideFlags: 0

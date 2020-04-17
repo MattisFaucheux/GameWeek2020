@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using System.Xml.Serialization;
 
 public class QuizzManager : MonoBehaviour
@@ -212,12 +213,21 @@ public class QuizzManager : MonoBehaviour
             m_musicAudioSource.PlayOneShot(m_perfect);
         }
 
-        m_question.text = "GG";
+        m_question.text = "Bien joué! Vous vous dirigez à présent vers le prochain pays!";
 
         for (int i = 0; i < 4; i++)
         {
             m_buttons[i].SetActive(false);
         }
+
+        StartCoroutine(WaitLoadScene());
+
+    }
+
+    IEnumerator WaitLoadScene()
+    {
+        yield return new WaitForSecondsRealtime(m_waitForNextQuestion);
+        SceneManager.LoadScene("Transi");
     }
 
     IEnumerator WaitStartQuizz()

@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/FINAL/France.unity
     guid: ff4363e0a26bb2d47be9e57ec2cea047
   - enabled: 1
+    path: Assets/Scenes/FINAL/Canada.unity
+    guid: f9e793272155a6647a7f8b96ca6a578a
+  - enabled: 1
+    path: Assets/Scenes/FINAL/Japon.unity
+    guid: 323610fccf99ecf47b29baee17894cdc
+  - enabled: 1
     path: Assets/Scenes/FINAL/Transi.unity
     guid: fb91d526c7819f64ab112693996baf14
   m_configObjects: {}
