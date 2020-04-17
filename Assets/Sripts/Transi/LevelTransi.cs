@@ -7,7 +7,7 @@ public class LevelTransi : MonoBehaviour
     public static float m_level =0;
     public static float m_balloonsNeed;
 
-    public TMPro.TextMeshProUGUI m_ballonsNeedTxt;
+    public TMPro.TextMeshProUGUI m_balloonsNeedTxt;
 
 
     // Start is called before the first frame update
@@ -21,8 +21,10 @@ public class LevelTransi : MonoBehaviour
         }
         else if(m_level == 2)
         {
-            m_balloonsNeed = 4;
+            m_balloonsNeed = 7;
         }
+
+        m_balloonsNeedTxt.text = m_balloonsNeed.ToString();
     }
 
 }
