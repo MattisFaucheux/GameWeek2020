@@ -24,8 +24,9 @@ public class Player : MonoBehaviour
 
     [Header("Rotate Model")]
     public Transform m_playerModel;
+    public Animator m_TurtleMove;
     public float m_rotateSpeed = 20f;
-    private Vector3 m_lastDir = new Vector3(1, 90, 0);
+    private Vector3 m_lastDir = new Vector3(0, 0, 1);
 
     [Header("Balloon")]
     public static float m_numberBalloons;
@@ -97,10 +98,12 @@ public class Player : MonoBehaviour
             Input.GetAxis("Horizontal") <= 0.3 && Input.GetAxis("Horizontal") >= -0.3)
         {
             dir = m_lastDir;
+            m_TurtleMove.SetBool("IsMoving", false);
         }
         else
         {
-            dir = new Vector3(Input.GetAxis("Vertical"), 90, -Input.GetAxis("Horizontal"));
+            m_TurtleMove.SetBool("IsMoving", true);
+            dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             m_lastDir = dir;
         }
         Quaternion Rotation = Quaternion.LookRotation(dir);
@@ -176,7 +179,8 @@ public class Player : MonoBehaviour
         transform.position = m_tpQuizz.position;
         controller.enabled = true;
 
-        Vector3 dir = new Vector3(-1, 90, 0);
+        m_TurtleMove.SetBool("IsMoving", false);
+        Vector3 dir = new Vector3(0, 0, -1);
         Quaternion Rotation = Quaternion.LookRotation(dir);
         m_playerModel.rotation = Quaternion.Lerp(m_playerModel.rotation, Rotation, 200 * Time.deltaTime);
     }
