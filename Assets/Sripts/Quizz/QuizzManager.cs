@@ -194,8 +194,9 @@ public class QuizzManager : MonoBehaviour
         m_musicAudioSource.Stop();
         m_audioSource.clip = m_clipStart;
         m_audioSource.Play();
-        m_dialogueManager.EndDialogue();
         m_balloonObj.SetActive(false);
+        m_playerScript.enabled = false;
+        m_dialogueManager.EndDialogue();
         m_playerScript.enabled = false;
 
         StartCoroutine(WaitStartQuizz());
@@ -220,13 +221,13 @@ public class QuizzManager : MonoBehaviour
             m_buttons[i].SetActive(false);
         }
 
-        StartCoroutine(WaitLoadScene());
+        StartCoroutine(WaitLoadScene(m_perfect.length));
 
     }
 
-    IEnumerator WaitLoadScene()
+    IEnumerator WaitLoadScene(float time)
     {
-        yield return new WaitForSecondsRealtime(m_waitForNextQuestion);
+        yield return new WaitForSecondsRealtime(time);
         SceneManager.LoadScene("Transi");
     }
 
@@ -237,6 +238,7 @@ public class QuizzManager : MonoBehaviour
         m_mainCam.GetComponent<FadeCamera1>().RedoFade();
         yield return new WaitForSecondsRealtime(m_clipStart.length / 4);
         m_playerScript.TpQuizz();
+        m_dialogueManager.EndDialogue();
         m_playerScript.enabled = false;
         yield return new WaitForSecondsRealtime(m_clipStart.length / 4);
         m_balloonObj.SetActive(true);
