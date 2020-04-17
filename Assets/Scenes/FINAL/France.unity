@@ -1213,6 +1213,11 @@ PrefabInstance:
       propertyPath: m_musicAudioSource
       value: 
       objectReference: {fileID: 1324285012}
+    - target: {fileID: 7125746357952732979, guid: 5264335c36300f14fb1c05696b1ff7b0,
+        type: 3}
+      propertyPath: m_timeForQuestion
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7125746357952732980, guid: 5264335c36300f14fb1c05696b1ff7b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1323,6 +1328,11 @@ PrefabInstance:
       propertyPath: m_musicAudioSource
       value: 
       objectReference: {fileID: 1324285012}
+    - target: {fileID: 7434701119530154944, guid: 5264335c36300f14fb1c05696b1ff7b0,
+        type: 3}
+      propertyPath: m_initialTimer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5264335c36300f14fb1c05696b1ff7b0, type: 3}
 --- !u!1 &231551882
