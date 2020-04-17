@@ -14,8 +14,10 @@ public class Quizz
 
     public static Quizz LoadFromFile(string filepath)
     {
+        string path = Path.Combine(Application.dataPath, filepath);
+
         XmlSerializer serializer = new XmlSerializer(typeof(Quizz));
-        using (FileStream stream = new FileStream(filepath, FileMode.Open))
+        using (FileStream stream = new FileStream(path, FileMode.Open))
         {
             return serializer.Deserialize(stream) as Quizz;
         }
