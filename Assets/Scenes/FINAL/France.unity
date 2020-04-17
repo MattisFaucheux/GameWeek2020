@@ -1218,6 +1218,11 @@ PrefabInstance:
       propertyPath: m_timeForQuestion
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7125746357952732979, guid: 5264335c36300f14fb1c05696b1ff7b0,
+        type: 3}
+      propertyPath: m_FilePath
+      value: /Resources/XML/france.xml
+      objectReference: {fileID: 0}
     - target: {fileID: 7125746357952732980, guid: 5264335c36300f14fb1c05696b1ff7b0,
         type: 3}
       propertyPath: m_LocalPosition.x
